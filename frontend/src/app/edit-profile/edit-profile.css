@@ -1,0 +1,65 @@
+.edit-profile-container {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+  border-color: #7b57ff;
+  box-shadow: 0 0 4px rgba(123, 87, 255, 0.4);
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #7b57ff, #5b33e6);
+  color: white;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 14px rgba(123, 87, 255, 0.35);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
