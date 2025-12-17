@@ -1,0 +1,80 @@
+<div class="user-list-container">
+    <!-- Back Button -->
+    <a routerLink="/dashboard" class="back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Dashboard
+    </a>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1 class="page-title">All Users</h1>
+        <p class="page-subtitle">Browse and manage all registered users in the system</p>
+    </div>
+
+    <!-- Error Alert -->
+    <div *ngIf="errorMessage" class="error-alert"
+        style="background: #fee2e2; color: #991b1b; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px solid #f87171;">
+        {{ errorMessage }}
+    </div>
+
+    <!-- Table Card -->
+    <div class="table-card">
+        <table class="user-table" *ngIf="users.length > 0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Designation</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td><span class="user-id">{{ user.id }}</span></td>
+                    <td>{{ user.name }}</td>
+                    <td><span class="user-email">{{ user.email }}</span></td>
+                    <td><span class="user-designation">{{ user.designation }}</span></td>
+                    <td><span class="user-department">{{ user.department }}</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Empty State -->
+        <div class="empty-state" *ngIf="users.length === 0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <p>No users found</p>
+        </div>
+    </div>
+
+    <!-- Pagination Buttons -->
+    <div class="pagination" *ngIf="users.length > 0">
+        <button class="pagination-btn" (click)="prevPage()" [disabled]="page === 0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+            Previous
+        </button>
+        <span class="pagination-info">Page {{ page + 1 }} of {{ totalPages }}</span>
+        <button class="pagination-btn" (click)="nextPage()" [disabled]="page + 1 >= totalPages">
+            Next
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </button>
+    </div>
+
+
+</div>
